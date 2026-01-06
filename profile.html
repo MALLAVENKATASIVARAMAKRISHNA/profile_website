@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ai karyashala – Student Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 16px 36px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0a66c2, #00c6ff);
+            color: #fff;
+            padding: 20px 16px;
+            text-align: center;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 0.6px;
+        }
+
+        /* Content */
+        .content {
+            padding: 20px 18px;
+            text-align: center;
+        }
+
+        .content img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00c6ff;
+            margin-bottom: 12px;
+        }
+
+        .name {
+            font-size: 21px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .role {
+            font-size: 14px;
+            color: #666;
+            margin: 6px 0 16px;
+        }
+
+        /* Social links – mobile friendly */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            flex: 1;
+            min-width: 120px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 0;
+            border-radius: 25px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .linkedin { background: #0a66c2; }
+        .github { background: #24292e; }
+
+        /* Info – stacked for phone */
+        .info {
+            background: #f9fafc;
+            border-radius: 14px;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .info div {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            display: block;
+            font-weight: 600;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .value {
+            color: #111;
+            font-size: 15px;
+        }
+
+        /* Footer button – thumb friendly */
+        .footer {
+            background: linear-gradient(135deg, #00c6ff, #0a66c2);
+            padding: 18px;
+            text-align: center;
+        }
+
+        .cap-btn {
+            display: inline-block;
+            width: 100%;
+            max-width: 260px;
+            padding: 12px 0;
+            background: #ffffff;
+            color: #0a66c2;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+        }
+
+        .cap-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h2>Ai karyashala</h2>
+    </div>
+
+    <div class="content">
+        <img id="photo" alt="Student Photo">
+
+        <div class="name" id="name"></div>
+        <div class="role" id="track"></div>
+
+        <div class="social-links">
+            <a id="linkedin" class="linkedin" target="_blank">LinkedIn</a>
+            <a id="github" class="github" target="_blank">GitHub</a>
+        </div>
+
+        <div class="info">
+            <div>
+                <span class="label">Student ID</span>
+                <span class="value" id="studentId"></span>
+            </div>
+            <div>
+                <span class="label">Email</span>
+                <span class="value" id="email"></span>
+            </div>
+            <div>
+                <span class="label">Phone</span>
+                <span class="value" id="phone"></span>
+            </div>
+            <div>
+                <span class="label">Institute</span>
+                <span class="value" id="institute"></span>
+            </div>
+            <div>
+                <span class="label">City</span>
+                <span class="value" id="city"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="/capabilities" target="_blank" class="cap-btn">
+            Capabilities
+        </a>
+    </div>
+</div>
+
+<script>
+    const defaultPhoto =
+        "https://cdn-icons-png.flaticon.com/512/4140/4140048.png";
+
+    const studentProfile = {
+        student_id: "STU-2026-041",
+        name: "Ramakrishna",
+        track: "Backend Heavy Frontend Developer",
+        email: "ram@example.com",
+        phone: "+91 98765 43210",
+        institute: "Ai karyashala",
+        city: "Visakhapatnam",
+        photo: "",
+        linkedin: "https://www.linkedin.com/in/your-profile",
+        github: "https://github.com/your-username"
+    };
+
+    document.getElementById("studentId").textContent = studentProfile.student_id;
+    document.getElementById("name").textContent = studentProfile.name;
+    document.getElementById("track").textContent = studentProfile.track;
+    document.getElementById("email").textContent = studentProfile.email;
+    document.getElementById("phone").textContent = studentProfile.phone;
+    document.getElementById("institute").textContent = studentProfile.institute;
+    document.getElementById("city").textContent = studentProfile.city;
+
+    document.getElementById("photo").src =
+        studentProfile.photo || defaultPhoto;
+
+    document.getElementById("linkedin").href = studentProfile.linkedin;
+    document.getElementById("github").href = studentProfile.github;
+</script>
+
+</body>
+</html>
