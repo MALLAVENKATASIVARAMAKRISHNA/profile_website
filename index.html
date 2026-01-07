@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             font-family: "Segoe UI", Arial, sans-serif;
@@ -21,7 +19,6 @@
             min-height: 100vh;
         }
 
-        /* 🔹 LIGHT PURPLE CARD */
         .card {
             background: #f3f0ff;
             width: 100%;
@@ -31,7 +28,6 @@
             overflow: hidden;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, #0a66c2, #00c6ff);
             color: #fff;
@@ -45,7 +41,6 @@
             letter-spacing: 0.6px;
         }
 
-        /* Content */
         .content {
             padding: 20px 18px;
             text-align: center;
@@ -67,18 +62,25 @@
             color: #222;
         }
 
+        .email {
+            font-size: 13px;
+            color: #444;
+            margin-top: 4px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+
         .role {
             font-size: 14px;
             color: #555;
-            margin: 6px 0 16px;
+            margin: 6px 0 14px;
         }
 
-        /* Social links */
         .social-links {
             display: flex;
             gap: 12px;
             justify-content: center;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             flex-wrap: wrap;
         }
 
@@ -97,32 +99,17 @@
         .linkedin { background: #0a66c2; }
         .github { background: #24292e; }
 
-        /* 🔹 LIGHT PURPLE INFO */
-        .info {
+        /* ✅ INFO CARD */
+        .info-card {
             background: #ebe6ff;
             border-radius: 14px;
-            padding: 14px 16px;
-            text-align: left;
-            font-size: 14px;
+            padding: 14px 14px;
+            font-size: 13.5px;
+            color: #333;
+            line-height: 1.5;
+            margin-top: 6px;
         }
 
-        .info div {
-            margin-bottom: 10px;
-        }
-
-        .label {
-            display: block;
-            font-weight: 600;
-            color: #555;
-            font-size: 13px;
-        }
-
-        .value {
-            color: #111;
-            font-size: 15px;
-        }
-
-        /* Footer */
         .footer {
             background: linear-gradient(135deg, #00c6ff, #0a66c2);
             padding: 18px;
@@ -142,10 +129,6 @@
             text-decoration: none;
             box-shadow: 0 6px 14px rgba(0,0,0,0.25);
         }
-
-        .cap-btn:active {
-            transform: scale(0.98);
-        }
     </style>
 </head>
 <body>
@@ -159,6 +142,7 @@
         <img id="photo" alt="Student Photo">
 
         <div class="name" id="name"></div>
+        <div class="email" id="email"></div>
         <div class="role" id="track"></div>
 
         <div class="social-links">
@@ -166,12 +150,9 @@
             <a id="github" class="github" target="_blank">GitHub</a>
         </div>
 
-        <div class="info">
-            <div><span class="label">Student ID</span><span class="value" id="studentId"></span></div>
-            <div><span class="label">Email</span><span class="value" id="email"></span></div>
-            <div><span class="label">Phone</span><span class="value" id="phone"></span></div>
-            <div><span class="label">Institute</span><span class="value" id="institute"></span></div>
-            <div><span class="label">City</span><span class="value" id="city"></span></div>
+        <!-- ✅ NEW INFO CARD -->
+        <div class="info-card">
+            Currently learning backend engineering at AI Karyashala, with practical exposure to computer fundamentals, backend development concepts
         </div>
     </div>
 
@@ -187,25 +168,17 @@
         "https://cdn-icons-png.flaticon.com/512/4140/4140048.png";
 
     const studentProfile = {
-        student_id: "STU-2026-041",
-        name: "Ramakrishna",
-        track: "Backend Heavy Frontend Developer",
-        email: "ram@example.com",
-        phone: "+91 98765 43210",
-        institute: "Ai karyashala",
-        city: "Visakhapatnam",
+        name: "M.V.S.Rama krishna",
+        track: "Backend Heavy Fullstack Developer",
+        email: "ramakrishna@03112003.xyz",
         photo: "",
-        linkedin: "https://www.linkedin.com/in/your-profile",
-        github: "https://github.com/your-username"
+        linkedin: "https://www.linkedin.com/in/malla-venkata-siva-rama-krishna-919518232",
+        github: "https://github.com/MALLAVENKATASIVARAMAKRISHNA"
     };
 
-    document.getElementById("studentId").textContent = studentProfile.student_id;
     document.getElementById("name").textContent = studentProfile.name;
     document.getElementById("track").textContent = studentProfile.track;
     document.getElementById("email").textContent = studentProfile.email;
-    document.getElementById("phone").textContent = studentProfile.phone;
-    document.getElementById("institute").textContent = studentProfile.institute;
-    document.getElementById("city").textContent = studentProfile.city;
 
     document.getElementById("photo").src =
         studentProfile.photo || defaultPhoto;
